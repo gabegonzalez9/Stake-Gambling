@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SheetForge AI · Spreadsheet-to-App Converter</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <header class="hero">
+        <nav class="top-nav">
+          <div class="logo">SheetForge AI</div>
+          <div class="nav-actions">
+            <button class="ghost">Docs</button>
+            <button class="ghost">Templates</button>
+            <button class="primary">Start new conversion</button>
+          </div>
+        </nav>
+        <section class="hero-content">
+          <div>
+            <span class="eyebrow">AI Spreadsheet-to-App Converter</span>
+            <h1>Turn spreadsheets into production-ready apps in minutes.</h1>
+            <p>
+              Upload your data, describe what you want to build, and SheetForge AI
+              generates a complete app blueprint—screens, workflows, and data
+              models included.
+            </p>
+            <div class="hero-cta">
+              <button class="primary">Upload a spreadsheet</button>
+              <button class="secondary">Watch demo</button>
+            </div>
+            <div class="hero-stats">
+              <div>
+                <strong>4 min</strong>
+                <span>Average build time</span>
+              </div>
+              <div>
+                <strong>120+</strong>
+                <span>Reusable templates</span>
+              </div>
+              <div>
+                <strong>98%</strong>
+                <span>Schema accuracy</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-card">
+            <h3>Your conversion workspace</h3>
+            <p class="muted">
+              Drop in any CSV or XLSX. We analyze the structure, detect
+              relationships, and propose a full app spec.
+            </p>
+            <div class="upload-box" id="upload-box">
+              <input id="file-input" type="file" accept=".csv" />
+              <div>
+                <strong>Drag & drop</strong>
+                <span>or click to browse</span>
+              </div>
+            </div>
+            <div class="upload-meta" id="upload-meta">
+              <span>Supported: CSV, XLSX</span>
+              <span>Max 10 MB</span>
+            </div>
+            <div class="file-summary" id="file-summary">
+              <div>
+                <strong id="file-name">No file selected</strong>
+                <span id="file-details">Upload a CSV to preview the schema.</span>
+              </div>
+              <button class="ghost" id="clear-file">Clear</button>
+            </div>
+          </div>
+        </section>
+      </header>
+
+      <main>
+        <section class="builder">
+          <div class="panel">
+            <div class="panel-header">
+              <h2>1. Describe the app you want to build</h2>
+              <span class="chip">AI guided</span>
+            </div>
+            <textarea
+              id="prompt"
+              placeholder="Example: A client intake app with project tracking, automated status emails, and a client portal view."
+            ></textarea>
+            <div class="panel-actions">
+              <div>
+                <label class="checkbox">
+                  <input type="checkbox" checked />
+                  <span>Generate automations</span>
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" checked />
+                  <span>Create analytics dashboard</span>
+                </label>
+              </div>
+              <button class="primary" id="generate">Generate app blueprint</button>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h2>2. Review detected schema</h2>
+              <span class="chip muted">From spreadsheet</span>
+            </div>
+            <div class="schema" id="schema">
+              <div class="schema-placeholder">
+                Upload a CSV to preview the detected fields and relationships.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="results">
+          <div class="results-header">
+            <h2>AI-generated app blueprint</h2>
+            <p class="muted">
+              Use this plan to jumpstart your build in Webflow, Bubble, Retool, or
+              your preferred stack.
+            </p>
+          </div>
+          <div class="tabs">
+            <button class="tab active" data-tab="screens">Screens</button>
+            <button class="tab" data-tab="data-model">Data model</button>
+            <button class="tab" data-tab="automations">Automations</button>
+          </div>
+          <div class="tab-content" id="tab-content"></div>
+        </section>
+      </main>
+
+      <footer>
+        <div>
+          <strong>SheetForge AI</strong>
+          <p class="muted">AI conversion studio for spreadsheets.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Security</a>
+          <a href="#">Status</a>
+          <a href="#">Support</a>
+        </div>
+      </footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
